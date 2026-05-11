@@ -2,22 +2,82 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>JSON Сериализация на C++</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание: JSON в C++ | Маргарита</title>
     <style>
-        body { font-family: sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-        .back { text-decoration: none; color: #007bff; font-weight: bold; }
-        iframe { width: 100%; height: 600px; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px; }
-        code { background: #eee; padding: 2px 5px; border-radius: 4px; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #2d3436;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: #007bff; margin-top: 0; }
+
+        .code-container {
+            margin-top: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back">← Назад</a>
-    <h1>Сериализация данных в JSON (C++)</h1>
-    <p>В этом задании я использую библиотеку <code>nlohmann/json</code> для преобразования структуры данных в формат JSON.</p>
-    
-    <h3>Интерактивная демонстрация:</h3>
-    <p>Вы можете отредактировать данные в коде ниже и нажать кнопку <b>"Run"</b>, чтобы увидеть результат работы программы.</p>
 
-    <iframe src="https://wandbox.org/embed?code=%23include%20%3Ciostream%3E%0A%23include%20%3Cnlohmann%2Fjson.hpp%3E%0A%0Ausing%20json%20%3D%20nlohmann%3A%3Ajson%3B%0A%0Aint%20main()%20%7B%0A%20%20%20%20json%20j%3B%0A%20%20%20%20j%5B%22user%22%5D%20%3D%20%22margo2305%22%3B%0A%20%20%20%20j%5B%22status%22%5D%20%3D%20%22online%22%3B%0A%20%20%20%20j%5B%22tasks_completed%22%5D%20%3D%205%3B%0A%0A%20%20%20%20std%3A%3Acout%20%3C%3C%20j.dump(4)%20%3C%3C%20std%3A%3Aendl%3B%0A%20%20%20%20return%200%3B%0A%7D&layout=vert"></iframe>
+    <header>
+        <h1>Задание: JSON в C++</h1>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Вернуться на главную</a>
+        
+        <div class="content-card">
+            <h2>Описание работы</h2>
+            <p>В рамках этой задачи я изучила процесс <strong>сериализации</strong> — преобразования программных структур данных в формат JSON. Это необходимо для передачи информации между сервером и клиентом в современных веб-приложениях.</p>
+            
+            <p>Ниже представлено интерактивное окно с кодом. Вы можете изменить данные в массиве и нажать <strong>"Run"</strong>, чтобы увидеть результат выполнения программы в реальном времени.</p>
+
+            <div class="code-container">
+                <iframe src="https://wandbox.org/plain/cpp/17/2020-01-20-1?code=I2luY2x1ZGUgPGlvc3RyZWFtPgojaW5jbHVkZSA8bmxvaG1hbm4vanNvbi5ocHA+Cgp1c2luZyBqc29uID0gbmxvaG1hbm46Ompzb247CgppbnQgbWFpbigpIHsKICAgIGpzb24gaiA9IHsKICAgICAgICB7InByb2plY3QiLCAiTWFyZ2FyaXRhJ3MgUG9ydGZvbGlvIn0sCiAgICAgICAgeyJzdGF0dXMiLCAiU3VjY2VzcyJ9LAogICAgICAgIHsiZGF0YSIsIHsxLCAyLCAzLCA0LCA1fX0KICAgIH07CgogICAgc3RkOjpjb3V0IDw8IGouc2VyaWFsaXplKDEpIDw8IHN0ZDo6ZW5kbDsKICAgIHJldHVybiAwOwp9"></iframe>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
