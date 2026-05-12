@@ -95,14 +95,14 @@
                        </pre>
                     </div>
                     
-                    <div style="text-align: center; background: #ffffff; padding: 30px; border: 2px solid #007acc; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <h3 style="color: #007acc; margin-top: 0;">🚀 Интерактивный запуск</h3>
-                        <p style="color: #666; margin-bottom: 20px;">Поскольку некоторые провайдеры блокируют встроенные окна компиляторов, я вынесла запуск программы на внешнюю платформу Godbolt.</p>
-                        <a href="https://godbolt.org/z/bzW7sT43W" target="_blank" 
-                            style="background: #007acc; color: white; padding: 15px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s;">
-                            Открыть код в Compiler Explorer
-                        </a>
-                    </div>
+                   <div style="margin: 20px 0; border: 2px solid #007acc; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+                       <div style="background: #007acc; color: white; padding: 10px; font-family: sans-serif; font-size: 14px; font-weight: bold;">
+                           Интерактивный компилятор (Compiler Explorer)
+                       </div>
+                       <iframe width="100%" height="500px" frameborder="0" 
+                           src="https://godbolt.org/e#g:(!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUseUnicode:!t,hasInlinedCode:!t,j:1,lang:c%2B%2B,selection:(endColumn:1,endLineNumber:1,startColumn:1,startLineNumber:1),source:'#include+%3Ciostream%3E%0A%23include+%3Cnlohmann/json.hpp%3E%0A%0Ausing+json+%3D+nlohmann::json%3B%0A%0Aint+main()+%7B%0A++++json+book+%3D+%7B%0A++++++++%7B%22title%22,+%22C%2B%2B+Programming%22%7D,%0A++++++++%7B%22year%22,+2026%7D,%0A++++++++%7B%22is_available%22,+true%7D%0A++++%7D%3B%0A%0A++++std::cout+%3C%3C+book.dump(4)+%3C%3C+std::endl%3B%0A++++return+0%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+1',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(args:'',compiler:g132,fontScale:14,fontUseUnicode:!t,hasInlinedCode:!t,j:1,lang:c%2B%2B,libs:!((id:nlohmann_json,ver:trunk)),source:1,stdin:''),l:'5',n:'0',o:'Executor+g%2B%2B+13.2+(Editor+%231)',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4">
+                       </iframe>
+                   </div>
                 </div>
         </div>
 
