@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "json.hpp" // Подключаем заголовочный файл
+#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 
