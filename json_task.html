@@ -88,17 +88,19 @@
         #run-trigger:checked ~ .terminal-body .terminal-content { display: block; }
         #run-trigger:checked ~ .terminal-body .terminal-hint { display: none; }
 
-        max-width: 600px {
+        @media (max-width: 600px) {
             .content-card {
                 padding: 15px;
             }
             
             pre, .terminal-content {
                 font-size: 12px !important;
-                padding: 15px !important;
+                padding: 10px !important;
+                overflow-x: auto;
             }
-            
-            h1 { font-size: 20px; } 
+
+            header { padding: 25px 15px;}
+            h1 { font-size: 22px; } 
             
             .vsc-run-btn {
                 padding: 5px 12px;
