@@ -11,13 +11,13 @@
             padding: 0;
             background-color: #f8f9fa;
             color: #2d3436;
+            text-align: center; /* Центрируем заголовки и карточки */
         }
 
         header {
             background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
             color: white;
             padding: 40px 20px;
-            text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
@@ -40,22 +40,42 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: left; /* Текст внутри карточки — по левому краю */
         }
 
         h2 { color: #007bff; margin-top: 0; }
 
-        .code-container {
-            margin-top: 25px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #ddd;
+        /* Стили для имитации терминала */
+        #run-trigger { display: none !important; }
+
+        .vsc-run-btn {
+            display: inline-block;
+            background-color: #43a047;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            user-select: none;
+            transition: 0.2s;
         }
 
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
+        .vsc-run-btn:hover { background-color: #388e3c; }
+
+        .terminal-content {
+            display: none;
+            color: #d4d4d4;
+            font-family: 'Consolas', 'Monaco', monospace;
+            white-space: pre;
+            line-height: 1.5;
+            text-align: left !important;
         }
+
+        #run-trigger:checked ~ .terminal-body .terminal-content { display: block; }
+        #run-trigger:checked ~ .terminal-body .terminal-hint { display: none; }
+        #run-trigger:checked ~ .terminal-header .vsc-run-btn { background-color: #1e88e5; }
     </style>
 </head>
 <body>
@@ -71,133 +91,57 @@
             <h2>Итоговая работа: Сериализация в JSON</h2>
             <p><strong>Описание:</strong> В данной работе представлена программная модель формирования данных (на примере чека книжного магазина) и их перевод в универсальный формат JSON.</p>
     
-            <p>Программа демонстрирует корректную работу с библиотекой <code>nlohmann/json</code> и формирование иерархической структуры данных в C++.</p>
-            <p>Нажмите кнопку <strong>"Run"</strong> в интерактивном окне ниже, чтобы увидеть результат генерации JSON-кода в реальном времени:</p>
+            <p>Программа демонстрирует работу с библиотекой <code>nlohmann/json</code>.</p>
             
-            <div style="background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 12px; margin: 20px 0; font-family: 'Consolas', monospace; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <div style="color: #6a9955; margin-bottom: 10px;">// Исходный код: Сериализация объекта Book в JSON</div>
-                <pre style="margin: 0; font-size: 14px;">
-                    #include &lt;iostream&gt;
-                    #include &lt;string&gt;
-                    #include &lt;nlohmann/json.hpp&gt;
+            <!-- Блок с исходным кодом -->
+            <div style="background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 12px; margin: 20px 0; font-family: 'Consolas', monospace; overflow-x: auto;">
+                <div style="color: #6a9955; margin-bottom: 10px; font-size: 14px;">// Исходный код C++</div>
+                <pre style="margin: 0; font-size: 14px; line-height: 1.4; text-align: left;">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;nlohmann/json.hpp&gt;
 
-                    using json = nlohmann::json;
+using json = nlohmann::json;
 
-                    int main() {
-                        json book = {
-                            {"title", "C++ Programming"},
-                            {"year", 2026},
-                            {"is_available", true}
-                        };
-                    
-                        std::cout << book.dump(4) << std::endl;
-                        return 0;
-                    }
-                       </pre>
-                    </div>
-                    
-                   <style>
-    /* Скрываем реальный чекбокс */
-    #run-trigger {
-        display: none;
-    }
-
-    /* Стиль кнопки, которая на самом деле является лейблом для чекбокса */
-    .vsc-run-btn {
-        display: inline-block;
-        background-color: #0e639c;
-        color: white;
-        padding: 5px 15px;
-        border-radius: 3px;
-        cursor: pointer;
-        font-family: sans-serif;
-        font-size: 12px;
-        font-weight: bold;
-        user-select: none;
-    }
-
-    .vsc-run-btn:hover {
-        background-color: #1177bb;
-    }
-
-    /* Скрываем блок с результатом по умолчанию */
-    .terminal-content {
-        display: none;
-        margin-top: 10px;
-        color: #ce9178;
-        font-family: 'Consolas', monospace;
-        white-space: pre;
-    }
-
-    /* Когда чекбокс нажат (checked), показываем блок с результатом */
-    #run-trigger:checked ~ .terminal-content {
-        display: block;
-    }
+int main() {
+    json book = {
+        {"title", "C++ Programming"},
+        {"year", 2026},
+        {"is_available", true}
+    };
     
-    /* Скрываем подсказку после нажатия */
-    #run-trigger:checked ~ .terminal-hint {
-        display: none;
-    }
-                   <div class="terminal-wrapper" style="margin-top: 20px;">
-                       <style>
-                           #run-trigger {
-                               display: none !important;
-                           }
-                           .vsc-run-btn {
-                               display: inline-block;
-                               background-color: #0e639c;
-                               color: white;
-                               padding: 5px 15px;
-                               border-radius: 3px;
-                               cursor: pointer;
-                               font-family: sans-serif;
-                               font-size: 12px;
-                               font-weight: bold;
-                               user-select: none;
-                               transition: background 0.2s;
-                           }
-                           .vsc-run-btn:hover {
-                               background-color: #1177bb;
-                           }
-                           .terminal-content {
-                               display: none;
-                               margin-top: 10px;
-                               color: #ce9178;
-                               font-family: 'Consolas', monospace;
-                               white-space: pre;
-                               line-height: 1.5;
-                           }
-                           #run-trigger:checked ~ .terminal-body .terminal-content {
-                               display: block;
-                           }
-                           #run-trigger:checked ~ .terminal-body .terminal-hint {
-                               display: none;
-                           }
-                           #run-trigger:checked ~ .terminal-header .vsc-run-btn {
-                               background-color: #43a047;
-                           }
-                   </style>
-                            <div style="background-color: #1e1e1e; border: 1px solid #333; border-radius: 4px; overflow: hidden; font-family: 'Consolas', monospace;">
-                                <input type="checkbox" id="run-trigger">
-                                <div class="terminal-header" style="background-color: #2d2d2d; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;">
-                                    <span style="color: #ccc; font-size: 13px;">Terminal — c++_project</span>
-                                    <label for="run-trigger" class="vsc-run-btn">Run Code</label>
-                                </div>
-                                <div class="terminal-body" style="min-height: 150px; padding: 15px;">
-                                    <div class="terminal-hint" style="color: #6a9955;">// Нажмите кнопку для выполнения...</div>
-                                    <div class="terminal-content">
-                                        <span style="color: #569cd6;">[Running]</span> g++ main.cpp && ./main
-                                        <span style="color: #dcdcaa;">--- JSON Serialization Result ---</span>
-                                        {
-                                        "is_available": true,
-                                        "title": "C++ Programming",
-                                        "year": 2026
-                                        }
-                                        <span style="color: #569cd6;">[Done] exited with code=0</span></div>
-                                </div>
-                            </div>
-                        </div>
+    std::cout << book.dump(4) << std::endl;
+    return 0;
+}</pre>
+            </div>
+
+            <p>Нажмите <strong>Run Code</strong>, чтобы увидеть результат выполнения:</p>
+
+            <!-- Имитация терминала -->
+            <div style="background-color: #1e1e1e; border: 1px solid #333; border-radius: 8px; overflow: hidden; margin-top: 20px;">
+                <input type="checkbox" id="run-trigger">
+                
+                <div class="terminal-header" style="background-color: #2d2d2d; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #ccc; font-size: 12px; font-family: sans-serif; letter-spacing: 1px;">TERMINAL</span>
+                    <label for="run-trigger" class="vsc-run-btn">Run Code</label>
+                </div>
+
+                <div class="terminal-body" style="min-height: 160px; padding: 20px; text-align: left !important;">
+                    <div class="terminal-hint" style="color: #6a9955; font-family: 'Consolas', monospace;">// Ожидание запуска...</div>
+                    
+                    <div class="terminal-content">
+<span style="color: #569cd6;">[Running]</span> g++ main.cpp && ./main
+<span style="color: #dcdcaa;">--- JSON Serialization Result ---</span>
+{
+    "is_available": true,
+    "title": "C++ Programming",
+    "year": 2026
+}
+<span style="color: #569cd6;">[Done] exited with code=0</span></div>
+                </div>
+            </div>
         </div>
+    </div>
 
 </body>
 </html>
