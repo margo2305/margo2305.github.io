@@ -138,14 +138,52 @@
     #run-trigger:checked ~ .terminal-hint {
         display: none;
     }
+                   <div class="terminal-wrapper" style="margin-top: 20px;">
+                       <style>
+                           #run-trigger {
+                               display: none !important;
+                           }
+                           .vsc-run-btn {
+                               display: inline-block;
+                               background-color: #0e639c;
+                               color: white;
+                               padding: 5px 15px;
+                               border-radius: 3px;
+                               cursor: pointer;
+                               font-family: sans-serif;
+                               font-size: 12px;
+                               font-weight: bold;
+                               user-select: none;
+                               transition: background 0.2s;
+                           }
+                           .vsc-run-btn:hover {
+                               background-color: #1177bb;
+                           }
+                           .terminal-content {
+                               display: none;
+                               margin-top: 10px;
+                               color: #ce9178;
+                               font-family: 'Consolas', monospace;
+                               white-space: pre;
+                               line-height: 1.5;
+                           }
+                           #run-trigger:checked ~ .terminal-body .terminal-content {
+                               display: block;
+                           }
+                           #run-trigger:checked ~ .terminal-body .terminal-hint {
+                               display: none;
+                           }
+                           #run-trigger:checked ~ .terminal-header .vsc-run-btn {
+                               background-color: #43a047;
+                           }
                    </style>
-                            <div style="margin-top: 20px; background-color: #1e1e1e; border: 1px solid #333; border-radius: 4px; overflow: hidden; font-family: 'Consolas', monospace;">
-                                <div style="background-color: #2d2d2d; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="background-color: #1e1e1e; border: 1px solid #333; border-radius: 4px; overflow: hidden; font-family: 'Consolas', monospace;">
+                                <input type="checkbox" id="run-trigger">
+                                <div class="terminal-header" style="background-color: #2d2d2d; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;">
                                     <span style="color: #ccc; font-size: 13px;">Terminal — c++_project</span>
-                                    <input type="checkbox" id="run-trigger">
                                     <label for="run-trigger" class="vsc-run-btn">Run Code</label>
                                 </div>
-                                <div style="min-height: 150px; padding: 15px; background-color: #1e1e1e;">
+                                <div class="terminal-body" style="min-height: 150px; padding: 15px;">
                                     <div class="terminal-hint" style="color: #6a9955;">// Нажмите кнопку для выполнения...</div>
                                     <div class="terminal-content">
                                         <span style="color: #569cd6;">[Running]</span> g++ main.cpp && ./main
@@ -158,6 +196,7 @@
                                         <span style="color: #569cd6;">[Done] exited with code=0</span></div>
                                 </div>
                             </div>
+                        </div>
         </div>
 
 </body>
