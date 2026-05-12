@@ -50,7 +50,7 @@
 
         .vsc-run-btn {
             display: inline-block;
-            background-color: #43a047;
+            background-color: #007bff;
             color: white;
             padding: 6px 18px;
             border-radius: 4px;
@@ -62,7 +62,19 @@
             transition: 0.2s;
         }
 
-        .vsc-run-btn:hover { background-color: #388e3c; }
+        .vsc-run-btn:hover { background-color: #0056b3; }
+        
+        .vsc-run-btn::after {
+            content: "Run Code";
+        }
+
+        #run-trigger:checked ~ .terminal-header .vsc-run-btn { 
+            background-color: #636e72;
+        }
+
+        #run-trigger:checked ~ .terminal-header .vsc-run-btn::after {
+            content: "Stop";
+        }
 
         .terminal-content {
             display: none;
@@ -75,7 +87,6 @@
 
         #run-trigger:checked ~ .terminal-body .terminal-content { display: block; }
         #run-trigger:checked ~ .terminal-body .terminal-hint { display: none; }
-        #run-trigger:checked ~ .terminal-header .vsc-run-btn { background-color: #1e88e5; }
     </style>
 </head>
 <body>
