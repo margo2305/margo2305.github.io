@@ -122,8 +122,13 @@ int main() {
                 <div class="terminal-bar">
                     <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
                     <span class="t-name">user@terminal: ~/projects/min_json_cpp</span>
+                    <div class="terminal-controls">
+                        <button id="run-term" class="term-btn run">Run</button>
+                        <button id="stop-term" class="term-btn stop">Stop</button>
+                    </div>
                 </div>
                 <div class="terminal-screen" id="terminal-out">
+                    <div class="terminal-placeholder">Нажмите Run для запуска анализа...</div>
                 </div>
             </div>
         </section>
