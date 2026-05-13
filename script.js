@@ -1,64 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeBtn = document.getElementById('theme-toggle');
-    const applyTheme = (theme) => {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('portfolio-theme', theme);
-    };
-    themeBtn?.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-    applyTheme(localStorage.getItem('portfolio-theme') || 'light');
-
-    const track = document.getElementById('carousel-track');
-    const nextBtn = document.getElementById('next-slide');
-    let index = 0;
-
-    nextBtn?.addEventListener('click', () => {
-        const items = document.querySelectorAll('.carousel-item');
-        index = (index + 1) % items.length;
-        const width = items[0].offsetWidth + 20;
-        track.style.transform = translateX(-${index * width}px);
+    const themeBtn = document.querySelector('header button');
+    themeBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        themeBtn.innerText = isDark ? 'Dark Mode' : 'Light Mode';
     });
 
-    const copyBtn = document.getElementById('copy-btn');
-    copyBtn?.addEventListener('click', () => {
-        const code = document.querySelector('code').innerText;
-        navigator.clipboard.writeText(code).then(() => {
-            copyBtn.innerText = "Copied!";
-            setTimeout(() => copyBtn.innerText = "Copy", 2000);
-        });
+    const track = document.querySelector('.carousel-track');
+    const btnNext = document.querySelector('.carousel-wrapper button');
+    let offset = 0;
+
+    btnNext.addEventListener('click', () => {
+        offset = (offset <= -600) ? 0 : offset - 300;
+        track.style.transform = translateX(${offset}px);
     });
 
-    const actionBtn = document.getElementById('term-action');
-    const screen = document.getElementById('terminal-screen');
-    let interval = null;
-    let step = 0;
-    const logs = ["> System Check...", "> Loading C++ JSON Parser...", "> Time: 01:44 - UTF8 OK", "> Time: 17:23 - Speed optimized", "> Done."];
+    const copyBtn = document.querySelector('.about-section button'); // Кнопка "Копировать"
+    copyBtn.addEventListener('click', () => {
+        const code = document.querySelector('pre').innerText;
+        navigator.clipboard.writeText(code);
+        copyBtn.innerText = "Готово!";
+        setTimeout(() => copyBtn.innerText = "Копировать", 2000);
+    });
 
-    actionBtn?.addEventListener('click', () => {
-        if (interval) {
-            clearInterval(interval);
-            interval = null;
-            actionBtn.innerText = "Run";
-            actionBtn.className = "term-btn-toggle btn-run";
-            screen.innerHTML += <div style="color:red"> [HALTED] </div>;
+    const runBtn = document.querySelector('.terminal-bar button');
+    const screen = document.querySelector('.terminal-screen');
+    let timer = null;
+    let i = 0;
+    const lines = ["> Init...", "> Loading JSON...", "> Check UTF-8: OK", "> Success!"];
+
+    runBtn.addEventListener('click', () => {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+            runBtn.innerText = "Run";
+            runBtn.classList.remove('stop');
         } else {
-            actionBtn.innerText = "Stop";
-            actionBtn.className = "term-btn-toggle btn-stop";
-            if (step >= logs.length) { screen.innerHTML = ""; step = 0; }
-            
-            interval = setInterval(() => {
-                if (step < logs.length) {
-                    const line = document.createElement('div');
-                    line.innerText = logs[step];
-                    screen.appendChild(line);
-                    step++;
+            runBtn.innerText = "Stop";
+            runBtn.classList.add('stop');
+            screen.innerHTML = ""; i = 0;
+            timer = setInterval(() => {
+                if (i < lines.length) {
+                    screen.innerHTML += <div>${lines[i]}</div>;
+                    i++;
                 } else {
-                    clearInterval(interval);
-                    interval = null;
-                    actionBtn.innerText = "Run";
-                    actionBtn.className = "term-btn-toggle btn-run";
+                    clearInterval(timer);
+                    timer = null;
+                    runBtn.innerText = "Run";
+                    runBtn.classList.remove('stop');
                 }
             }, 800);
         }
