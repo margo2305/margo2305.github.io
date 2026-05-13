@@ -8,67 +8,44 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container header-flex">
-            <div class="logo">
-                <h1>Маргарита</h1>
-                <p>Программирование & Веб-дизайн</p>
-            </div>
+    <header>
+        <div class="header-content">
+            <h1>Маргарита</h1>
+            <p>Студентка ИТ-направления</p>
             <button id="theme-toggle" class="theme-btn">
                 <span id="theme-text">Dark Mode</span>
             </button>
         </div>
     </header>
 
-    <main class="container">
-        <section class="info-grid">
-            <article class="card">
-                <h2>Обо мне</h2>
-                <p>Привет, меня зовут Маргарита. Я изучаю программирование, веб-разработку и веб-дизайн. Мне нравится создавать функциональные интерфейсы и изучать логику современных языков программирования.</p>
-            </article>
-            
-            <aside class="card">
-                <h2>Мои цели</h2>
-                <p>На этом сайте я выкладываю свои учебные коды и ДЗ по интернет-программированию. В будущем планирую использовать этот ресурс как портфолио для моих дизайнерских работ.</p>
-            </aside>
+    <div class="container">
+        <section class="about-section">
+            <h2>Обо мне</h2>
+            <p>Привет, меня зовут Маргарита. Я изучаю программирование, веб-разработку и веб-дизайн. Мне нравится создавать функциональные интерфейсы и изучать логику современных языков программирования.</p>
         </section>
 
-        <section class="projects-section">
-            <h2 class="title-center">Работы и задания</h2>
-            <div class="projects-grid">
-                
-                <a href="json_task.html" class="project-link">
-                    <article class="project-card">
-                        <header>
-                            <span class="tag">C++ / JSON / Анализ</span>
-                            <h3>Сериализация в C++</h3>
-                        </header>
-                        <div class="card-body">
-                            <p>Интерактивный конспект доклада Павла Новикова. Разбор механизмов обработки данных и производительности.</p>
-                        </div>
-                        <footer class="card-footer">
-                            <strong>Открыть конспект →</strong>
-                        </footer>
-                    </article>
-                </a>
+        <section class="about-section goals-section">
+            <h2>Мои цели</h2>
+            <p>На этом сайте я выкладываю свои учебные коды и ДЗ по интернет-программированию. В будущем планирую использовать этот ресурс как портфолио для моих дизайнерских работ.</p>
+        </section>
 
-                <article class="project-card draft">
-                    <header>
-                        <span class="tag">Next Step</span>
-                        <h3>Веб-дизайн</h3>
-                    </header>
-                    <p>Здесь в будущем будут размещены макеты и сетки сайтов.</p>
-                </article>
+        <h2 style="text-align: center; margin: 40px 0 30px;">Мои работы</h2>
+        
+        <div class="projects-grid">
+            <a href="json_task.html" class="project-card">
+                <span class="tag">C++ / JSON / Анализ</span>
+                <h3>Сериализация данных</h3>
+                <p>Интерактивный разбор доклада Павла Новикова. Анализ механизмов обработки данных и производительности.</p>
+                <strong>Смотреть работу →</strong>
+            </a>
 
+            <div class="project-card draft">
+                <span class="tag" style="background: #eee; color: #999;">В разработке</span>
+                <h3>Веб-дизайн</h3>
+                <p>Здесь в будущем будут размещены макеты интерфейсов и сетки сайтов.</p>
             </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 Маргарита. Проект на GitHub Pages.</p>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
