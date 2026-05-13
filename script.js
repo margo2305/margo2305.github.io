@@ -1,68 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeBtn = document.querySelector('header button');
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
-            const target = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', target);
-            localStorage.setItem('theme', target);
-            themeBtn.innerText = target === 'dark' ? 'Light Mode' : 'Dark Mode';
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        
+        if (body.classList.contains('dark-theme')) {
+            themeToggle.innerText = 'Light Mode';
+        } else {
+            themeToggle.innerText = 'Dark Mode';
+        }
+    });
+
+    const track = document.getElementById('carouselTrack');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (nextBtn && track) {
+        nextBtn.addEventListener('click', () => {
+            const cardWidth = track.querySelector('.work-card').offsetWidth + 20;
+            
+            if (track.scrollLeft + track.offsetWidth >= track.scrollWidth - 10) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
         });
-        const saved = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', saved);
-        themeBtn.innerText = saved === 'dark' ? 'Light Mode' : 'Dark Mode';
     }
 
-    const track = document.querySelector('.carousel-track');
-    const nextBtn = document.querySelector('.nav-arrow');
-    let offset = 0;
+    const copyBtn = document.getElementById('copyCodeBtn');
+    const codeBlock = document.getElementById('cppCode');
 
-    nextBtn?.addEventListener('click', () => {
-        const itemWidth = 265; // Ширина плашки + gap
-        offset = (offset <= -530) ? 0 : offset - itemWidth;
-        track.style.transform = translateX(${offset}px);
-    });
-
-    const copyBtn = document.querySelector('.about-section button:not(header button)');
-    copyBtn?.addEventListener('click', () => {
-        const codeText = document.querySelector('pre').innerText;
-        navigator.clipboard.writeText(codeText).then(() => {
+    copyBtn.addEventListener('click', () => {
+        const text = codeBlock.innerText;
+        navigator.clipboard.writeText(text).then(() => {
             const originalText = copyBtn.innerText;
-            copyBtn.innerText = "Скопировано!";
-            setTimeout(() => copyBtn.innerText = originalText, 2000);
+            copyBtn.innerText = 'Скопировано!';
+            copyBtn.style.background = '#2e7d32'; 
+            
+            setTimeout(() => {
+                copyBtn.innerText = originalText;
+                copyBtn.style.background = ''; 
+            }, 2000);
         });
     });
 
-    const runBtn = document.querySelector('.terminal-header button');
-    const screen = document.querySelector('.terminal-screen');
-    let interval = null;
-    let step = 0;
-    const lines = ["> MSI_System: Initializing...", "> Loading JSON: 1500 lines...", "> UTF-8 Validation: OK", "> Serialization: COMPLETE"];
+    const runBtn = document.getElementById('runBtn');
+    const terminalOutput = document.getElementById('terminalOutput');
 
-    runBtn?.addEventListener('click', () => {
-        if (interval) {
-            clearInterval(interval);
-            interval = null;
-            runBtn.innerText = "Run";
-            runBtn.classList.remove('btn-stop');
-            screen.innerHTML += '<div style="color:red"> [HALTED] </div>';
-        } else {
-            runBtn.innerText = "Stop";
-            runBtn.classList.add('btn-stop');
-            screen.innerHTML = ""; step = 0;
-            interval = setInterval(() => {
-                if (step < lines.length) {
-                    const p = document.createElement('div');
-                    p.innerText = lines[step];
-                    screen.appendChild(p);
-                    step++;
-                } else {
-                    clearInterval(interval);
-                    interval = null;
-                    runBtn.innerText = "Run";
-                    runBtn.classList.remove('btn-stop');
-                }
-            }, 800);
-        }
+    runBtn.addEventListener('click', () => {
+        terminalOutput.innerHTML = '<div class="line">C:\\Users\\JSON> g++ main.cpp -o solution</div>';
+        
+        setTimeout(() => {
+            terminalOutput.innerHTML += '<div class="line">Компиляция... [##########] 100%</div>';
+        }, 600);
+
+        setTimeout(() => {
+            terminalOutput.innerHTML += '<div class="line" style="color: #fff;">Running executable...</div>';
+            terminalOutput.innerHTML += '<div class="line" style="color: #00ff41;">Serialized: {"title":"JSON in C++", "pages":1500, "author":"P. Novikov"}</div>';
+            terminalOutput.innerHTML += '<div class="line">C:\\Users\\Margarita> <span class="cursor">_</span></div>';
+        }, 1500);
     });
 });
