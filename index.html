@@ -4,130 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио | Маргарита</title>
-    <style>
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #2d3436;
-        }
-
-        header {
-            background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: -40px auto 50px;
-            padding: 0 20px;
-        }
-
-        .about-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-        }
-
-        .about-section h2 {
-            color: #007bff;
-            margin-top: 0;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            border-top: 5px solid #007bff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        .project-card h3 {
-            margin: 0 0 10px 0;
-            color: #007bff;
-        }
-
-        .project-card p {
-            font-size: 0.95rem;
-            color: #636e72;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e1f0ff;
-            color: #007bff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Маргарита</h1>
-        <p>Студентка ИТ-направления</p>
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <h1>Маргарита</h1>
+                <p>Программирование & Веб-дизайн</p>
+            </div>
+            <button id="theme-toggle" class="theme-btn">
+                <span id="theme-text">Dark Mode</span>
+            </button>
+        </div>
     </header>
 
-    <div class="container">
-        <section class="about-section">
-            <h2>Обо мне</h2>
-            <p>Добро пожаловать на мой персональный сайт! Здесь я публикую результаты своих учебных проектов и лабораторных работ.</p>
+    <main class="container">
+        <section class="info-grid">
+            <article class="card">
+                <h2>Обо мне</h2>
+                <p>Привет, меня зовут Маргарита. Я изучаю программирование, веб-разработку и веб-дизайн. Мне нравится создавать функциональные интерфейсы и изучать логику современных языков программирования.</p>
+            </article>
+            
+            <aside class="card">
+                <h2>Мои цели</h2>
+                <p>На этом сайте я выкладываю свои учебные коды и ДЗ по интернет-программированию. В будущем планирую использовать этот ресурс как портфолио для моих дизайнерских работ.</p>
+            </aside>
         </section>
 
-        <h2 style="text-align: center; margin-bottom: 30px;">Мои работы</h2>
-        <div class="projects-grid">
-            
-            <a href="json_task.html" class="project-card">
-                <span class="tag">C++ / JSON</span>
-                <h3>Сериализация данных</h3>
-                <p>Работа с библиотекой nlohmann/json: создание структур и их перевод в текстовый формат для передачи по сети.</p>
-                <strong>Смотреть работу →</strong>
-            </a>
+        <section class="projects-section">
+            <h2 class="title-center">Работы и задания</h2>
+            <div class="projects-grid">
+                
+                <a href="json_task.html" class="project-link">
+                    <article class="project-card">
+                        <header>
+                            <span class="tag">C++ / JSON / Анализ</span>
+                            <h3>Сериализация в C++</h3>
+                        </header>
+                        <div class="card-body">
+                            <p>Интерактивный конспект доклада Павла Новикова. Разбор механизмов обработки данных и производительности.</p>
+                        </div>
+                        <footer class="card-footer">
+                            <strong>Открыть конспект →</strong>
+                        </footer>
+                    </article>
+                </a>
 
-            <div class="project-card" style="opacity: 0.6; cursor: default;">
-                <span class="tag" style="background: #eee; color: #999;">В разработке</span>
-                <h3>Новое задание</h3>
-                <p>Здесь скоро появится описание следующей лабораторной работы.</p>
+                <article class="project-card draft">
+                    <header>
+                        <span class="tag">Next Step</span>
+                        <h3>Веб-дизайн</h3>
+                    </header>
+                    <p>Здесь в будущем будут размещены макеты и сетки сайтов.</p>
+                </article>
+
             </div>
+        </section>
+    </main>
 
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Маргарита. Проект на GitHub Pages.</p>
         </div>
-    </div>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
