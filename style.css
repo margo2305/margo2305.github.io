@@ -241,3 +241,49 @@ header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
     border-radius: 15px;
 }
 .back-link:hover { opacity: 1; background: rgba(255,255,255,0.1); }
+
+.terminal-controls {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.term-btn {
+    padding: 4px 14px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.term-btn.run {
+    background: #00c6ff; 
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
+}
+
+.term-btn.run.active {
+    background: #bdc3c7;
+    color: #7f8c8d;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+[data-theme="dark"] .term-btn.run.active {
+    background: #3d0000; 
+    color: #666;
+}
+
+
+.term-btn.stop {
+    background: #ff5f56;
+    color: white;
+}
+
+.term-btn.stop:hover {
+    background: #ff2e2e;
+    box-shadow: 0 0 10px rgba(255, 95, 86, 0.4);
+}
