@@ -8,11 +8,14 @@
 </head>
 <body class="task-page">
 
+    <div class="navigation-top">
+        <a href="index.html" class="back-link">← На главную</a>
+    </div>
+
     <header>
         <div class="header-content">
-            <a href="index.html" class="back-link">← На главную</a>
             <h1>JSON и сериализация в C++</h1>
-            <p>Анализ доклада: «Неожиданные подводные камни»</p>
+            <p>Анализ доклада Павла Новикова</p>
             <button id="theme-toggle" class="theme-btn">
                 <span id="theme-text">Dark Mode</span>
             </button>
@@ -20,11 +23,9 @@
     </header>
 
     <main class="container">
-        
         <section class="about-section">
             <h2>Обоснование выбора темы</h2>
-            <p>Выбор данной темы обусловлен высокой актуальностью эффективной обработки данных в современной разработке. JSON является стандартом обмена данными, а С++ — языком, где производительность стоит на первом месте.</p>
-            <p>Мне было интересно изучить, как решаются классические проблемы «велосипедостроения»: почему стандартных средств языка иногда недостаточно, как избежать лишних аллокаций памяти и зачем нужна ручная валидация UTF-8. Доклад Павла Новикова ценен тем, что он показывает путь от простой идеи до оптимизированной библиотеки <strong>min_json_cpp</strong>, разбирая ошибки, которые совершают даже опытные разработчики.</p>
+            <p>JSON — стандарт индустрии, а эффективная работа с ним в C++ — это баланс между удобством и скоростью, что критически важно для производительных систем.</p>
         </section>
 
         <section class="about-section">
@@ -32,38 +33,26 @@
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="carousel-track">
                     <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=104s" target="_blank" class="moment-link">
-                            <div class="preview-box">
-                                <img src="screen1.jpg" alt="UTF-8">
-                                <span class="timestamp">01:44</span>
-                            </div>
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=104s" target="_blank">
+                            <div class="preview-box"><img src="screen1.jpg" alt="1"><span class="timestamp">01:44</span></div>
                             <h3>Валидация UTF-8</h3>
                         </a>
                     </article>
                     <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=825s" target="_blank" class="moment-link">
-                            <div class="preview-box">
-                                <img src="screen2.jpg" alt="Вложенность">
-                                <span class="timestamp">13:45</span>
-                            </div>
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=825s" target="_blank">
+                            <div class="preview-box"><img src="screen2.jpg" alt="2"><span class="timestamp">13:45</span></div>
                             <h3>Обход вложенности</h3>
                         </a>
                     </article>
                     <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1043s" target="_blank" class="moment-link">
-                            <div class="preview-box">
-                                <img src="screen3.jpg" alt="to_chars">
-                                <span class="timestamp">17:23</span>
-                            </div>
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1043s" target="_blank">
+                            <div class="preview-box"><img src="screen3.jpg" alt="3"><span class="timestamp">17:23</span></div>
                             <h3>Числа и to_chars</h3>
                         </a>
                     </article>
                     <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1925s" target="_blank" class="moment-link">
-                            <div class="preview-box">
-                                <img src="screen4.jpg" alt="Библиотека">
-                                <span class="timestamp">32:05</span>
-                            </div>
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1925s" target="_blank">
+                            <div class="preview-box"><img src="screen4.jpg" alt="4"><span class="timestamp">32:05</span></div>
                             <h3>min_json_cpp</h3>
                         </a>
                     </article>
@@ -73,66 +62,49 @@
         </section>
 
         <section class="about-section">
-            <h2>Подробный конспект доклада</h2>
+            <h2>Развернутый конспект</h2>
             <div class="timeline">
-
-<div class="timeline-item">
-                    <strong>00:01:39 — Экранирование строк:</strong> Использование UTF-8 для интероперабельности. Рекомендация std::string вместо специфичных типов для упрощения парсинга.
+                <div class="timeline-item">
+                    <strong>01:44 — Валидация UTF-8:</strong> Нельзя просто верить строке. Докладчик объясняет, почему ручная проверка корректности байтовых последовательностей необходима для безопасности парсера.
                 </div>
                 <div class="timeline-item">
-                    <strong>00:12:02 — Обход элементов:</strong> Сравнение рекурсии и стека в куче. Оптимальное решение — комбинированный подход (рекурсия до определенного уровня).
+                    <strong>13:45 — Глубокая вложенность:</strong> Стандартная рекурсия может привести к переполнению стека. Решение: использование стека в куче (heap) для обработки структур любой глубины.
                 </div>
                 <div class="timeline-item">
-                    <strong>00:17:23 — Работа с числами:</strong> Использование to_chars из C++17 позволяет получить кратчайшее и быстрейшее представление числа без лишних буферов.
+                    <strong>17:23 — Оптимизация чисел:</strong> Традиционные методы (sprintf) медленные. Использование std::to_chars из C++17 позволяет записывать числа в буфер максимально быстро и без лишних аллокаций.
                 </div>
                 <div class="timeline-item">
-                    <strong>00:32:05 — Итоги библиотеки:</strong> Создание легковесного решения (1500 строк), сопоставимого по скорости с популярными парсерами.
+                    
+                    <strong>32:05 — Архитектура библиотеки:</strong> Обзор min_json_cpp. Как 1500 строк кода могут конкурировать с гигантами индустрии за счет узкой специализации.
                 </div>
             </div>
         </section>
 
-        <section class="about-section code-section" style="position: relative;">
-            <h2>Практический пример: min_json_cpp</h2>
-            <p>Пример создания объекта с данными о книге «JSON in C++» и его сериализации:</p>
-            <button id="copy-btn" class="copy-button">Копировать код</button>
+        <section class="about-section code-box">
+            <h2>Код: JSON in C++</h2>
+            <button id="copy-btn" class="copy-button">Копировать</button>
             <pre><code id="cpp-code">
 #include "min_json.hpp"
-#include &lt;iostream&gt;
-
 int main() {
-    min_json::object_t book_info = {
+    min_json::object_t book = {
         {"title", "JSON in C++"},
-        {"author", "Pavel Novikov"},
         {"pages", 1500},
-        {"topics", min_json::array_t{"Serialization", "UTF-8", "Optimization"}},
-        {"is_active", true}
+        {"author", "P. Novikov"}
     };
-
-    std::string output = min_json::serialize(book_info, min_json::options::pretty_print);
-    std::cout << output << std::endl;
-
     return 0;
-}
-            </code></pre>
+}</code></pre>
         </section>
+
 
         <section class="about-section">
-            <h2>Системный лог min_json_cpp</h2>
             <div class="terminal">
                 <div class="terminal-bar">
-                    <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
-                    <span class="t-name">user@terminal: ~/projects/min_json_cpp</span>
-                    <div class="terminal-controls">
-                        <button id="run-term" class="term-btn run">Run</button>
-                        <button id="stop-term" class="term-btn stop">Stop</button>
-                    </div>
+                    <span class="t-name">Terminal</span>
+                    <button id="term-action-btn" class="run-btn">Run</button>
                 </div>
-                <div class="terminal-screen" id="terminal-out">
-                    <div class="terminal-placeholder">Нажмите Run для запуска анализа...</div>
-                </div>
+                <div id="terminal-out" class="terminal-screen"></div>
             </div>
         </section>
-
     </main>
 
     <script src="script.js"></script>
