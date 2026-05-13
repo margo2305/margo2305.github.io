@@ -3,179 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание: JSON в C++ | Маргарита</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #2d3436;
-            text-align: center;
-        }
-
-        header {
-            background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
-            color: white;
-            padding: 40px 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .btn-back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .content-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: left;
-        }
-
-        h2 { color: #007bff; margin-top: 0; }
-
-
-        #run-trigger { display: none !important; }
-
-        .vsc-run-btn {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 6px 18px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: sans-serif;
-            font-size: 13px;
-            font-weight: bold;
-            user-select: none;
-            transition: 0.2s;
-        }
-
-        .vsc-run-btn:hover { background-color: #0056b3; }
-        
-        .vsc-run-btn::after {
-            content: "Run Code";
-        }
-
-        #run-trigger:checked ~ .terminal-header .vsc-run-btn { 
-            background-color: #636e72;
-        }
-
-        #run-trigger:checked ~ .terminal-header .vsc-run-btn::after {
-            content: "Stop";
-        }
-
-        .terminal-content {
-            display: none;
-            color: #d4d4d4;
-            font-family: 'Consolas', 'Monaco', monospace;
-            white-space: pre;
-            line-height: 1.5;
-            text-align: left !important;
-        }
-
-        #run-trigger:checked ~ .terminal-body .terminal-content { display: block; }
-        #run-trigger:checked ~ .terminal-body .terminal-hint { display: none; }
-
-        @media (max-width: 600px) {
-            .content-card {
-                padding: 15px;
-            }
-            
-            pre, .terminal-content {
-                font-size: 12px !important;
-                padding: 10px !important;
-                overflow-x: auto;
-            }
-
-            header { padding: 25px 15px;}
-            h1 { font-size: 22px; } 
-            
-            .vsc-run-btn {
-                padding: 5px 12px;
-                font-size: 11px;
-            }
-    </style>
+    <title>Разбор доклада | Маргарита</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="task-page">
 
     <header>
-        <h1>Задание: JSON в C++</h1>
-    </header>
-    
-    <div class="container">
-        <div style="text-align: left; margin-bottom: 15px;">
-            <a href="index.html" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 14px;">
-            ← Вернуться на главную
-            </a>
+        <div class="header-content">
+            <a href="index.html" class="back-link">← На главную</a>
+            <h1>JSON и сериализация в C++</h1>
+            <p>Анализ доклада: «Неожиданные подводные камни»</p>
+            <button id="theme-toggle" class="theme-btn">
+                <span id="theme-text">Dark Mode</span>
+            </button>
         </div>
+    </header>
+
+    <main class="container">
         
-        <div class="content-card">
-            <h2>Итоговая работа: Сериализация в JSON</h2>
-            <p><strong>Описание:</strong> В данной работе представлена программная модель формирования данных (на примере чека книжного магазина) и их перевод в универсальный формат JSON.</p>
-    
-            <p>Программа демонстрирует работу с библиотекой <code>nlohmann/json</code>.</p>
-            
+        <section class="about-section">
+            <h2>Обоснование выбора темы</h2>
+            <p>Выбор данной темы обусловлен высокой актуальностью эффективной обработки данных в современной разработке. JSON является стандартом обмена данными, а С++ — языком, где производительность стоит на первом месте.</p>
+            <p>Мне было интересно изучить, как решаются классические проблемы «велосипедостроения»: почему стандартных средств языка иногда недостаточно, как избежать лишних аллокаций памяти и зачем нужна ручная валидация UTF-8. Доклад Павла Новикова ценен тем, что он показывает путь от простой идеи до оптимизированной библиотеки <strong>min_json_cpp</strong>, разбирая ошибки, которые совершают даже опытные разработчики.</p>
+        </section>
 
-            <div style="background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 12px; margin: 20px 0; font-family: 'Consolas', monospace; overflow-x: auto;">
-                <div style="color: #6a9955; margin-bottom: 10px; font-size: 14px;">// Исходный код C++</div>
-                <pre style="margin: 0; font-size: 14px; line-height: 1.4; text-align: left;">
+        <section class="about-section">
+            <h2>Ключевые моменты видео</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carousel-track">
+                    <article class="carousel-item">
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=104s" target="_blank" class="moment-link">
+                            <div class="preview-box">
+                                <img src="screen1.jpg" alt="UTF-8">
+                                <span class="timestamp">01:44</span>
+                            </div>
+                            <h3>Валидация UTF-8</h3>
+                        </a>
+                    </article>
+                    <article class="carousel-item">
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=825s" target="_blank" class="moment-link">
+                            <div class="preview-box">
+                                <img src="screen2.jpg" alt="Вложенность">
+                                <span class="timestamp">13:45</span>
+                            </div>
+                            <h3>Обход вложенности</h3>
+                        </a>
+                    </article>
+                    <article class="carousel-item">
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1043s" target="_blank" class="moment-link">
+                            <div class="preview-box">
+                                <img src="screen3.jpg" alt="to_chars">
+                                <span class="timestamp">17:23</span>
+                            </div>
+                            <h3>Числа и to_chars</h3>
+                        </a>
+                    </article>
+                    <article class="carousel-item">
+                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1925s" target="_blank" class="moment-link">
+                            <div class="preview-box">
+                                <img src="screen4.jpg" alt="Библиотека">
+                                <span class="timestamp">32:05</span>
+                            </div>
+                            <h3>min_json_cpp</h3>
+                        </a>
+                    </article>
+                </div>
+                <button class="nav-arrow" id="next-slide">❯</button>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Подробный конспект доклада</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <strong>00:01:39 — Экранирование строк:</strong> Использование UTF-8 для интероперабельности. Рекомендация std::string вместо специфичных типов для упрощения парсинга.
+                </div>
+                <div class="timeline-item">
+                    <strong>00:12:02 — Обход элементов:</strong> Сравнение рекурсии и стека в куче. Оптимальное решение — комбинированный подход (рекурсия до определенного уровня).
+                </div>
+                <div class="timeline-item">
+                    <strong>00:17:23 — Работа с числами:</strong> Использование to_chars из C++17 позволяет получить кратчайшее и быстрейшее представление числа без лишних буферов.
+                </div>
+                <div class="timeline-item">
+                    <strong>00:32:05 — Итоги библиотеки:</strong> Создание легковесного решения (1500 строк), сопоставимого по скорости с популярными парсерами.
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section code-section">
+            <h2>Практический пример: min_json_cpp</h2>
+            <p>Ниже представлен пример создания и сериализации JSON-объекта с использованием библиотеки, описанной в докладе. Обратите внимание на использование современных контейнеров C++17.</p>
+            <pre><code>
+#include "min_json.hpp"
 #include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;nlohmann/json.hpp&gt;
-
-using json = nlohmann::json;
 
 int main() {
-    json book = {
-        {"title", "C++ Programming"},
-        {"year", 2026},
-        {"is_available", true}
+    min_json::object_t my_project = {
+        {"title", "Margo's Website"},
+        {"version", 2.1},
+        {"features", min_json::array_t{"Terminal", "Carousel", "Themes"}},
+        {"is_active", true}
     };
-    
-    std::cout << book.dump(4) << std::endl;
-    return 0;
-}</pre>
-            </div>
 
-            <p>Нажмите <strong>Run Code</strong>, чтобы увидеть результат выполнения:</p>
+    std::string output = min_json::serialize(my_project, min_json::options::pretty_print);
 
+       <section class="about-section">
+           <h2>Системный лог min_json_cpp</h2>
+           <div class="terminal">
+               <div class="terminal-bar">
+                   <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+                   <span class="t-name">user@terminal: ~/projects/min_json_cpp</span>
+               </div>
+               <div class="terminal-screen" id="terminal-out">
+               </div>
+           </div>
+       </section>
+    </main>
 
-            <div style="background-color: #1e1e1e; border: 1px solid #333; border-radius: 8px; overflow: hidden; margin-top: 20px;">
-                <input type="checkbox" id="run-trigger">
-                
-                <div class="terminal-header" style="background-color: #2d2d2d; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="color: #ccc; font-size: 12px; font-family: sans-serif; letter-spacing: 1px;">TERMINAL</span>
-                    <label for="run-trigger" class="vsc-run-btn"></label>
-                </div>
-
-                <div class="terminal-body" style="min-height: 160px; padding: 20px; text-align: left !important;">
-                    <div class="terminal-hint" style="color: #6a9955; font-family: 'Consolas', monospace;">// Ожидание запуска...</div>
-                    
-                    <div class="terminal-content">
-<span style="color: #569cd6;">[Running]</span> g++ main.cpp && ./main
-<span style="color: #dcdcaa;">--- JSON Serialization Result ---</span>
-{
-    "is_available": true,
-    "title": "C++ Programming",
-    "year": 2026
-}
-<span style="color: #569cd6;">[Done] exited with code=0</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
