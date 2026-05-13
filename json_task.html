@@ -1,3 +1,4 @@
+> Галерея:
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,107 +7,120 @@
     <title>Разбор доклада | Маргарита</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="task-page">
-
-    <div class="navigation-top">
-        <a href="index.html" class="back-link">← На главную</a>
-    </div>
+<body>
 
     <header>
+        <a href="index.html" class="back-link">← На главную</a>
         <div class="header-content">
             <h1>JSON и сериализация в C++</h1>
-            <p>Анализ доклада Павла Новикова</p>
-            <button id="theme-toggle" class="theme-btn">
-                <span id="theme-text">Dark Mode</span>
-            </button>
+            <p class="subtitle">Анализ доклада Павла Новикова</p>
+            <button id="theme-toggle" class="msi-btn-outline">Dark Mode</button>
         </div>
     </header>
 
     <main class="container">
+        
         <section class="about-section">
             <h2>Обоснование выбора темы</h2>
-            <p>JSON — стандарт индустрии, а эффективная работа с ним в C++ — это баланс между удобством и скоростью, что критически важно для производительных систем.</p>
+            <div class="text-content">
+                <p>Выбор данной темы продиктован тем, что JSON сегодня — это стандарт де-факто для обмена данными в веб-сервисах и распределенных системах. В мире C++ эффективная работа с текстом всегда была вызовом. Доклад Павла Новикова интересен тем, что он рассматривает не просто использование готовых решений, а глубокую оптимизацию «под капотом»: как минимизировать аллокации памяти, использовать современные инструкции процессора и добиваться производительности, превосходящей стандартные парсеры в разы. Для меня, как для студента ИТ-направления, это отличный пример того, как знание архитектуры C++ превращается в конкретные миллисекунды выигрыша скорости.</p>
+            </div>
         </section>
 
         <section class="about-section">
             <h2>Ключевые моменты видео</h2>
             <div class="carousel-wrapper">
-                <div class="carousel-track" id="carousel-track">
-                    <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=104s" target="_blank">
-                            <div class="preview-box"><img src="screen1.jpg" alt="1"><span class="timestamp">01:44</span></div>
-                            <h3>Валидация UTF-8</h3>
-                        </a>
-                    </article>
-                    <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=825s" target="_blank">
-                            <div class="preview-box"><img src="screen2.jpg" alt="2"><span class="timestamp">13:45</span></div>
-                            <h3>Обход вложенности</h3>
-                        </a>
-                    </article>
-                    <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1043s" target="_blank">
-                            <div class="preview-box"><img src="screen3.jpg" alt="3"><span class="timestamp">17:23</span></div>
-                            <h3>Числа и to_chars</h3>
-                        </a>
-                    </article>
-                    <article class="carousel-item">
-                        <a href="https://www.youtube.com/watch?v=R9Z_A9XpTqU&t=1925s" target="_blank">
-                            <div class="preview-box"><img src="screen4.jpg" alt="4"><span class="timestamp">32:05</span></div>
-                            <h3>min_json_cpp</h3>
-                        </a>
-                    </article>
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="work-card">
+                        <div class="card-icon">UTF-8</div>
+                        <h3>Валидация байтов</h3>
+                        <p>01:44 — Разбор сложности проверки корректности строк в парсере.</p>
+                    </div>
+                    <div class="work-card">
+                        <div class="card-icon">HEAP</div>
+                        <h3>Обход вложенности</h3>
+                        <p>13:45 — Использование стека против динамической памяти при парсинге.</p>
+                    </div>
+                    <div class="work-card">
+                        <div class="card-icon">C++17</div>
+                        <h3>Числа в текст</h3>
+                        <p>17:23 — Оптимизация записи float/int через современные функции.</p>
+                    </div>
+                    <div class="work-card">
+                        <div class="card-icon">JSON</div>
+                        <h3>Архитектура библиотеки</h3>
+                        <p>32:05 — Итоговая структура min_json_cpp и её преимущества.</p>
+                    </div>
                 </div>
-                <button class="nav-arrow" id="next-slide">❯</button>
+                <button class="scroll-btn" id="nextBtn">Прокрутить →</button>
             </div>
         </section>
 
         <section class="about-section">
             <h2>Развернутый конспект</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <strong>01:44 — Валидация UTF-8:</strong> Нельзя просто верить строке. Докладчик объясняет, почему ручная проверка корректности байтовых последовательностей необходима для безопасности парсера.
+            <div class="details-grid">
+                <div class="detail-plate">
+                    <span class="time-tag">01:44</span>
+                    <p><strong>Валидация UTF-8:</strong> Нельзя просто верить строке. Докладчик объясняет, почему ручная проверка необходима для стабильности парсера.</p>
                 </div>
-                <div class="timeline-item">
-                    <strong>13:45 — Глубокая вложенность:</strong> Стандартная рекурсия может привести к переполнению стека. Решение: использование стека в куче (heap) для обработки структур любой глубины.
+                <div class="detail-plate">
+                    <span class="time-tag">13:45</span>
+                    <p><strong>Глубокая вложенность:</strong> Рекурсия может «уронить» стек. Рассматривается переход на итеративный подход.</p>
                 </div>
-                <div class="timeline-item">
-                    <strong>17:23 — Оптимизация чисел:</strong> Традиционные методы (sprintf) медленные. Использование std::to_chars из C++17 позволяет записывать числа в буфер максимально быстро и без лишних аллокаций.
+                <div class="detail-plate">
+                    <span class="time-tag">17:23</span>
+                    <p><strong>Оптимизация чисел:</strong> Использование <code>std::to_chars</code> позволяет избежать медленного <code>sprintf</code>.</p>
                 </div>
-                <div class="timeline-item">
-                    
-                    <strong>32:05 — Архитектура библиотеки:</strong> Обзор min_json_cpp. Как 1500 строк кода могут конкурировать с гигантами индустрии за счет узкой специализации.
+                <div class="detail-plate">
+                    <span class="time-tag">32:05</span>
+                    <p><strong>Архитектура:</strong> Библиотека занимает всего 1500 строк, но конкурирует с гигантами индустрии по скорости.</p>
                 </div>
             </div>
         </section>
 
-        <section class="about-section code-box">
-            <h2>Код: JSON in C++</h2>
-            <button id="copy-btn" class="copy-button">Копировать</button>
-            <pre><code id="cpp-code">
+        <section class="about-section">
+            <div class="section-header">
+                <h2>Код: JSON in C++</h2>
+                <button id="copyCodeBtn" class="msi-btn-sm">Копировать</button>
+            </div>
+            <div class="code-container">
+                <pre id="cppCode"><code>#include &lt;iostream&gt;
 #include "min_json.hpp"
+
 int main() {
-    min_json::object_t book = {
+    // Создаем объект JSON
+    min_json::object book = {
         {"title", "JSON in C++"},
         {"pages", 1500},
         {"author", "P. Novikov"}
     };
+    
+    std::cout << "Serialized: " << book.dump() << std::endl;
     return 0;
 }</code></pre>
-        </section>
-
-
-        <section class="about-section">
-            <div class="terminal">
-                <div class="terminal-bar">
-                    <span class="t-name">Terminal</span>
-                    <button id="term-action-btn" class="run-btn">Run</button>
-                </div>
-                <div id="terminal-out" class="terminal-screen"></div>
             </div>
         </section>
+
+        <section class="about-section">
+            <p class="terminal-hint">Нажмите "Run", чтобы запустить эмуляцию компиляции</p>
+            <div class="msi-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="terminal-title">user@terminal: ~/projects/json_task</span>
+                    <button id="runBtn" class="run-trigger">Run</button>
+                </div>
+                <div class="terminal-body" id="terminalOutput">
+                    <div class="line">C:\Users> <span class="cursor">_</span></div>
+                    <div class="status-msg">(Ожидание команды...)</div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
+
