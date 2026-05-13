@@ -75,8 +75,8 @@
         <section class="about-section">
             <h2>Подробный конспект доклада</h2>
             <div class="timeline">
-                
-                <div class="timeline-item">
+
+<div class="timeline-item">
                     <strong>00:01:39 — Экранирование строк:</strong> Использование UTF-8 для интероперабельности. Рекомендация std::string вместо специфичных типов для упрощения парсинга.
                 </div>
                 <div class="timeline-item">
@@ -91,34 +91,43 @@
             </div>
         </section>
 
-        <section class="about-section code-section">
+        <section class="about-section code-section" style="position: relative;">
             <h2>Практический пример: min_json_cpp</h2>
-            <p>Ниже представлен пример создания и сериализации JSON-объекта с использованием библиотеки, описанной в докладе. Обратите внимание на использование современных контейнеров C++17.</p>
-            <pre><code>
+            <p>Пример создания объекта с данными о книге «JSON in C++» и его сериализации:</p>
+            <button id="copy-btn" class="copy-button">Копировать код</button>
+            <pre><code id="cpp-code">
 #include "min_json.hpp"
 #include &lt;iostream&gt;
 
 int main() {
-    min_json::object_t my_project = {
-        {"title", "Margo's Website"},
-        {"version", 2.1},
-        {"features", min_json::array_t{"Terminal", "Carousel", "Themes"}},
+    min_json::object_t book_info = {
+        {"title", "JSON in C++"},
+        {"author", "Pavel Novikov"},
+        {"pages", 1500},
+        {"topics", min_json::array_t{"Serialization", "UTF-8", "Optimization"}},
         {"is_active", true}
     };
 
-    std::string output = min_json::serialize(my_project, min_json::options::pretty_print);
+    std::string output = min_json::serialize(book_info, min_json::options::pretty_print);
+    std::cout << output << std::endl;
 
-       <section class="about-section">
-           <h2>Системный лог min_json_cpp</h2>
-           <div class="terminal">
-               <div class="terminal-bar">
-                   <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
-                   <span class="t-name">user@terminal: ~/projects/min_json_cpp</span>
-               </div>
-               <div class="terminal-screen" id="terminal-out">
-               </div>
-           </div>
-       </section>
+    return 0;
+}
+            </code></pre>
+        </section>
+
+        <section class="about-section">
+            <h2>Системный лог min_json_cpp</h2>
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+                    <span class="t-name">user@terminal: ~/projects/min_json_cpp</span>
+                </div>
+                <div class="terminal-screen" id="terminal-out">
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <script src="script.js"></script>
