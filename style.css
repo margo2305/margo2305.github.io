@@ -146,8 +146,10 @@ header p {
 
 .navigation-container {
     max-width: 1200px;
-    margin: 20px auto 0;
+    margin: 20px auto;
     padding: 0 20px;
+    display: flex;
+    justify-content: flex-start; 
 }
 
 .back-link {
