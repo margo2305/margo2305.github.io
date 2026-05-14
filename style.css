@@ -149,10 +149,10 @@ header p {
     width: 100% !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
+    margin-top: 250px !important; 
     padding: 0 40px !important;
     position: relative !important;
-    top: 150px !important; 
-    z-index: 1000 !important;
+    z-index: 9999 !important; 
 }
 
 .back-link {
