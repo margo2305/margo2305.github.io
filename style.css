@@ -27,6 +27,17 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+body:not(.dark-mode) .back-link {
+    background: #f0f0f0 !important; 
+    color: #007bff !important;     
+    border-color: #007bff !important;
+}
+
+body:not(.dark-mode) .arrow {
+    background-color: #007bff !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; 
+}
+
 header {
     background: var(--header-grad) !important; 
     color: white;
