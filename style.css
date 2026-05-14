@@ -223,43 +223,46 @@ main.container {
     font-weight: bold;
 }
 
-.arrow.next, #nextBtn {
+.arrow {
     width: 50px !important;
     height: 50px !important;
-    background-color: #007bff !important; 
-    color: white !important;
-    border-radius: 50% !important;        
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    position: relative !important;
-    z-index: 10 !important;
-}
-
-#nextBtn::after {
-    content: '>' !important;
-}
-
-#prevBtn, .arrow.prev {
-    width: 50px !important;
-    height: 50px !important;
-    background-color: #007bff !important;
-    color: white !important;
+    background-color: #00d4ff !important; 
     border-radius: 50% !important;
     border: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
-    font-size: 24px !important;
+    padding: 0 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    color: white !important; 
 }
 
-#prevBtn::after {
-    content: '<' !important; 
+.arrow:hover {
+    background-color: #0099bb !important; 
+    transform: scale(1.1) !important;
 }
 
+.arrow svg {
+    width: 24px !important; 
+    height: 24px !important;
+    display: block !important;
+}
+
+#prevBtn {
+    position: absolute !important;
+    left: -25px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+#nextBtn {
+    position: absolute !important;
+    right: -25px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
 .carousel-viewport {
     display: flex;
     align-items: center;
