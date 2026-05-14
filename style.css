@@ -155,23 +155,18 @@ header p {
 .back-link {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
-    margin: 0 !important;
-    position: relative;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1); 
     border: 1px solid var(--accent);
-    border-radius: 50px;
-    color: var(--title-blue) !important;
+    border-radius: 20px;
+    color: var(--accent);
     text-decoration: none;
-    font-weight: bold;
     transition: 0.3s;
 }
 
 .back-link:hover {
     background: var(--accent);
-    color: white !important;
-    box-shadow: var(--card-shadow);
+    color: white;
 }
 
 .carousel-viewport {
