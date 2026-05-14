@@ -96,7 +96,10 @@
             <div class="code-editor">
                 <div class="editor-header">
                     <span>min_json.cpp</span>
-                    <button id="copyBtn" class="copy-btn">Copy</button>
+                    <div style="position: relative;">
+                        <span id="copyToast" class="toast-msg">Скопировано!</span>
+                        <button id="copyBtn" class="copy-btn">Copy</button>
+                    </div>
                 </div>
                 <pre id="cppCode"><code>#include "min_json.hpp"
 #include &lt;iostream&gt;
