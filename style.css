@@ -148,20 +148,20 @@ header p {
     display: block !important;
     width: 100% !important;
     max-width: 1200px !important;
-    margin: 120px auto 30px auto !important; 
+    margin: 0 auto !important;
     padding: 0 40px !important;
     position: relative !important;
-    clear: both !important; 
-    z-index: 999 !important;
+    top: 150px !important; 
+    z-index: 1000 !important;
 }
 
 .back-link {
     display: inline-block !important;
-    padding: 10px 22px !important;
+    padding: 12px 24px !important;
     background: #1a1a1a !important; 
     color: var(--accent) !important;
     border: 2px solid var(--accent) !important;
-    border-radius: 25px !important;
+    border-radius: 30px !important;
     text-decoration: none !important;
     font-weight: bold !important;
     transition: 0.3s ease !important;
@@ -169,7 +169,7 @@ header p {
 
 .back-link:hover {
     background: var(--accent) !important;
-    color: white !important;
+    color: #ffffff !important;
 }
 .carousel-viewport {
     display: flex;
