@@ -65,7 +65,6 @@ header p {
     transition: all 0.3s ease;
 }
 
-/* Заголовки: Всегда синие */
 .about-section h2, 
 .project-card h3,
 .section-title {
@@ -133,3 +132,217 @@ header p {
 .theme-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.back-link {
+    background-color: var(--accent);
+    color: white;
+    padding: 20px 10px;
+    text-decoration: none;
+    writing-mode: vertical-lr;
+    border-radius: 0 15px 15px 0;
+    font-weight: bold;
+    box-shadow: var(--card-shadow);
+    transition: 0.3s ease;
+}
+
+.back-link:hover {
+    padding-left: 20px;
+}
+
+.carousel-viewport {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.video-item {
+    min-width: calc(33.333% - 14px);
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-item img {
+    width: 100%;
+    display: block;
+}
+
+.item-overlay {
+    padding: 15px;
+}
+
+.timestamp {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.arrow {
+    background: var(--accent);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 20;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.arrow.prev { left: 5px; display: none; }
+.arrow.next { right: 5px; }
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.note-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid var(--accent);
+}
+
+.note-time {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.code-editor {
+    background: #2d2d2d;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 25px;
+}
+
+.editor-header {
+    background: #3c3c3c;
+    color: #ddd;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.copy-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+pre {
+    padding: 20px;
+    margin: 0;
+    overflow-x: auto;
+    font-family: 'Consolas', monospace;
+    color: #e0e0e0;
+}
+
+.terminal {
+    background: #1e1e1e;
+    color: #dcdccc;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.terminal-bar {
+    background: #333;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dots span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.dots span:nth-child(1) { background: #ff5f56; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #27c93f; }
+
+.t-btn {
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+.run { background: #28a745; }
+.stop { background: #dc3545; }
+
+.terminal-view {
+    padding: 20px;
+    min-height: 100px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+}
+
+.prompt { color: #27c93f; }
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    display: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+max-width: 850px {
+    .video-item { min-width: calc(50% - 10px); }
+}
+
+@media (max
+
+
+: 550px) {
+    .video-item { min-width: 100%; }
+}-width
