@@ -3,31 +3,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeText = document.getElementById('theme-text');
     const body = document.body;
 
-    const savedTheme = localStorage.getItem('site-theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        if (themeText) themeText.innerText = 'Light Mode';
-    }
-
-    themeBtn.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-    
-        localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
-        
-        if (themeText) {
-            themeText.innerText = isDark ? 'Light Mode' : 'Dark Mode';
+    if (themeBtn) {
+        const savedTheme = localStorage.getItem('site-theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            if (themeText) themeText.innerText = 'Light Mode';
         }
-    });
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+            if (themeText) {
+                themeText.innerText = isDark ? 'Light Mode' : 'Dark Mode';
+            }
+        });
+    }
 
     const track = document.getElementById('track');
     const prev = document.getElementById('prevBtn');
     const next = document.getElementById('nextBtn');
+    const firstItem = document.querySelector('.video-item');
     let currentIndex = 0;
 
-    if (track && next && prev) {
+    if (track && next && prev && firstItem) {
         const updateCarousel = () => {
-            const itemWidth = document.querySelector('.video-item').offsetWidth + 20; 
+            const itemWidth = firstItem.offsetWidth + 20; 
             track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             
             prev.style.display = currentIndex === 0 ? 'none' : 'block';
@@ -35,17 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             next.style.display = currentIndex >= maxIndex ? 'none' : 'block';
         };
 
-        next.addEventListener('click', () => {
-            currentIndex++;
-            updateCarousel();
-        });
-
-        prev.addEventListener('click', () => {
-            currentIndex--;
-            updateCarousel();
-        });
-
+        next.addEventListener('click', () => { currentIndex++; updateCarousel(); });
+        prev.addEventListener('click', () => { currentIndex--; updateCarousel(); });
         window.addEventListener('resize', updateCarousel);
+        updateCarousel(); 
     }
 
     const copyBtn = document.getElementById('copyBtn');
@@ -72,22 +66,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const termOutput = document.getElementById('termOutput');
 
     if (runBtn && stopBtn && termOutput) {
+        const addLine = (content, delay) => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.innerHTML = content;
+                    termOutput.appendChild(div);
+                    resolve();
+                }, delay);
+            });
+        };
+
         runBtn.addEventListener('click', () => {
             termOutput.innerHTML = '<span class="prompt">guest@dev-env:~/json_project$ </span>';
-            
             runBtn.style.display = 'none';
             stopBtn.style.display = 'inline-block';
-            
-            const addLine = (content, delay) => {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        const div = document.createElement('div');
-                        div.innerHTML = content;
-                        termOutput.appendChild(div);
-                        resolve();
-                    }, delay);
-                });
-            };
 
             addLine('<span style="color: #abb2bf;">[1/1] Compiling min_json.cpp...</span>', 400)
                 .then(() => addLine('<span style="color: #98c379;">[OK] Executing binary...</span>', 600))
