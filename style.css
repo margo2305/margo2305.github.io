@@ -145,15 +145,14 @@ header p {
 }
 
 .navigation-container {
-    position: relative !important; 
     display: flex !important;
     justify-content: flex-start !important;
     width: 100% !important;
     max-width: 1200px !important;
-    margin: 20px auto !important; 
-    padding: 0 20px !important;
-    transfrom: none !important;
-    z-index: 10 !important;
+    margin: 15px auto 20px -30px !important; 
+    padding: 0 !important;
+    position: relative !important;
+    z-index: 100 !important;
 }
 
 main.container {
