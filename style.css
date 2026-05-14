@@ -144,12 +144,15 @@ header p {
     margin: 0 auto;
 }
 
-.navigation-fix {
-    position: fixed !important;
-    top: 180px !important;     
-    left: 50px !important;     
-    z-index: 99999 !important; 
-    width: auto !important;
+.navigation-container {
+    position: relative !important; 
+    display: flex !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 80px auto 20px auto !important; 
+    padding: 0 40px !important;
+    z-index: 10 !important;
 }
 
 .back-link {
