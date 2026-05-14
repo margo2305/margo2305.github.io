@@ -181,9 +181,9 @@ header p {
 }
 
 .carousel-track-container {
-    overflow: visible !important; 
+    overflow: hidden !important; 
     width: 100%;
-    padding-top: 20px; 
+    padding: 20px 0;
 }
 
 .carousel-track {
@@ -227,12 +227,13 @@ header p {
     height: 45px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 .arrow-btn:hover {
