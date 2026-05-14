@@ -145,35 +145,32 @@ header p {
 }
 
 .navigation-fix {
-    display: flex !important;
-    justify-content: flex-start !important;
+    display: block !important;
     width: 100% !important;
     max-width: 1200px !important;
-    margin: 0 auto !important;
+    margin: 120px auto 30px auto !important; 
     padding: 0 40px !important;
     position: relative !important;
-    transform: translateY(100px) !important; 
+    clear: both !important; 
     z-index: 999 !important;
 }
 
 .back-link {
     display: inline-block !important;
     padding: 10px 22px !important;
-    background: transparent !important;
+    background: #1a1a1a !important; 
     color: var(--accent) !important;
     border: 2px solid var(--accent) !important;
     border-radius: 25px !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    transition: all 0.3s ease !important;
+    transition: 0.3s ease !important;
 }
 
 .back-link:hover {
     background: var(--accent) !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4) !important;
+    color: white !important;
 }
-
 .carousel-viewport {
     display: flex;
     align-items: center;
