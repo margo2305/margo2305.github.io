@@ -280,6 +280,29 @@ header p {
     border: 1px solid #333;
 }
 
+.button-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.toast-msg {
+    position: absolute;
+    bottom: 135%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: none; 
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
 .editor-header, .terminal-bar {
     display: flex;
     justify-content: space-between;
@@ -287,6 +310,22 @@ header p {
     padding: 10px 20px;
     background: #2d2d2d;
     border-bottom: 1px solid #444;
+}
+
+.copy-btn, .run, .stop {
+    padding: 6px 16px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.copy-btn:hover, .run:hover {
+    background: var(--accent);
+    color: white;
 }
 
 .button-container {
