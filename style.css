@@ -144,29 +144,32 @@ header p {
     margin: 0 auto;
 }
 
-.navigation-container {
+.navigation-fix {
+    width: 100%;
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+    margin: 40px auto 20px auto;
+    padding: 0 30px;
+    position: relative;
+    z-index: 10; 
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
 }
 
 .back-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.1); 
-    border: 1px solid var(--accent);
-    border-radius: 20px;
-    color: var(--accent);
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1e1e1e;
+    border: 2px solid var(--accent);
+    border-radius: 30px;
+    color: var(--accent) !important;
     text-decoration: none;
+    font-weight: bold;
     transition: 0.3s;
 }
 
 .back-link:hover {
     background: var(--accent);
-    color: white;
+    color: white !important;
 }
 
 .carousel-viewport {
