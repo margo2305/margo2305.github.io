@@ -150,28 +150,28 @@ header p {
     width: 100% !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
-    padding: 80px 40px 20px 40px !important; 
+    padding: 0 40px !important;
     position: relative !important;
-    z-index: 10 !important;
+    transform: translateY(50px) !important; 
+    z-index: 999 !important;
 }
 
 .back-link {
     display: inline-block !important;
     padding: 10px 22px !important;
-    background: transparent !important; 
+    background: transparent !important;
     color: var(--accent) !important;
     border: 2px solid var(--accent) !important;
     border-radius: 25px !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    transition: all 0.3s ease !important; 
+    transition: all 0.3s ease !important;
 }
 
 .back-link:hover {
-    background: var(--accent) !important; 
-    color: #ffffff !important;           
+    background: var(--accent) !important;
+    color: #ffffff !important;
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4) !important;
-    transform: translateY(-2px) !important; 
 }
 
 .carousel-viewport {
