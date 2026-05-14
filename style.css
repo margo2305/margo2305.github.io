@@ -150,9 +150,13 @@ header p {
     justify-content: flex-start !important;
     width: 100% !important;
     max-width: 1200px !important;
-    margin: 80px auto 20px auto !important; 
+    margin: 15px auto 20px auto !important; 
     padding: 0 40px !important;
     z-index: 10 !important;
+}
+
+main.container {
+    margin-top: 50px !important;
 }
 
 .back-link {
