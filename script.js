@@ -59,24 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const copyBtn = document.getElementById('copyBtn');
-    const cppCode = document.getElementById('cppCode');
     const toast = document.getElementById('copyToast');
-
-    if (copyBtn && cppCode) {
+    if (copyBtn) {
         copyBtn.addEventListener('click', () => {
-            const text = cppCode.innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                if (toast) {
-                    toast.style.display = 'block';
-                    setTimeout(() => { toast.style.display = 'none'; }, 2000);
-                }
-                const originalText = copyBtn.innerText;
+            const code = document.getElementById('cppCode').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                toast.style.display = 'block';
                 copyBtn.innerText = 'Done!';
-                setTimeout(() => { copyBtn.innerText = originalText; }, 1500);
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                    copyBtn.innerText = 'Copy';
+                }, 2000);
             });
         });
     }
-
     const runBtn = document.getElementById('runBtn');
     const stopBtn = document.getElementById('stopBtn');
     const termOutput = document.getElementById('termOutput');
