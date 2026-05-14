@@ -406,4 +406,32 @@ main.container {
     color: white;
 }
 
+.video-preview {
+    position: relative !important;
+    width: 100% !important;
+    height: 160px !important; 
+    overflow: hidden !important;
+    border-radius: 12px !important;
+    background: #000 !important;
+}
+
+.preview-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    object-position: center !important;
+    display: block !important;
+}
+
+.time-badge {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: #00d4ff !important; 
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+}
 
