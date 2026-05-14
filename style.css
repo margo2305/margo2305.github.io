@@ -217,12 +217,53 @@ header p {
     background: var(--accent);
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 5;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-btn:hover {
+    background: var(--title-blue);
+    transform: scale(1.1);
+}
+
+.arrow-btn[style*="visibility: hidden"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carousel-viewport {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 15px; 
+}
+
+.note-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 4px solid var(--accent); 
+    margin-bottom: 20px;
     transition: 0.3s;
+}
+
+.note-card:hover {
+    transform: translateX(10px);
+    background: rgba(51, 145, 255, 0.1);
+}
+
+.note-time {
+    color: var(--accent);
+    font-family: monospace;
+    font-weight: bold;
 }
 
 #cppCode {
