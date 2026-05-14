@@ -152,7 +152,7 @@ header p {
     margin: 0 auto !important;
     padding: 0 40px !important;
     position: relative !important;
-    transform: translateY(50px) !important; 
+    transform: translateY(100px) !important; 
     z-index: 999 !important;
 }
 
