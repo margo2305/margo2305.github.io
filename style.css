@@ -145,27 +145,27 @@ header p {
 }
 
 .navigation-fix {
-    position: absolute !important;
-    top: 150px !important;   
-    left: 40px !important;      
+    position: fixed !important;
+    top: 180px !important;     
+    left: 50px !important;     
+    z-index: 99999 !important; 
     width: auto !important;
-    z-index: 9999 !important;  
 }
 
 .back-link {
     display: inline-block !important;
-    padding: 10px 22px !important;
-    background: #1a1a1a !important;
-    color: var(--accent) !important;
-    border: 2px solid var(--accent) !important;
-    border-radius: 25px !important;
+    padding: 12px 24px !important;
+    background: #1a1a1a !important; 
+    color: #007bff !important;     
+    border: 2px solid #007bff !important;
+    border-radius: 30px !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    transition: all 0.3s ease !important;
+    transition: 0.3s ease !important;
 }
 
 .back-link:hover {
-    background: var(--accent) !important;
+    background: #007bff !important;
     color: white !important;
 }
 .carousel-viewport {
