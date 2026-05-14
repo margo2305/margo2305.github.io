@@ -239,9 +239,25 @@ main.container {
 }
 
 #nextBtn::after {
-    content: '→' !important;
-    font-size: 20px !important;
-    font-weight: bold !important;
+    content: '>' !important;
+}
+
+#prevBtn, .arrow.prev {
+    width: 50px !important;
+    height: 50px !important;
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 50% !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 24px !important;
+}
+
+#prevBtn::after {
+    content: '<' !important; 
 }
 
 .carousel-viewport {
