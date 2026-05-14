@@ -135,11 +135,22 @@ header p {
 
 /* --- СПЕЦИФИКА ВТОРОЙ СТРАНИЦЫ --- */
 
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .back-link {
     display: inline-flex;
     align-items: center;
     padding: 10px 20px;
-    margin: 20px;
+    margin: 0 !important;
+    position: relative;
+    z-index: 10;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--accent);
     border-radius: 50px;
@@ -164,8 +175,9 @@ header p {
 }
 
 .carousel-track-container {
-    overflow: hidden;
+    overflow: visible !important; 
     width: 100%;
+    padding-top: 20px; 
 }
 
 .carousel-track {
@@ -226,3 +238,5 @@ header p {
     border-radius: 15px 15px 0 0;
     border: 1px solid #333;
 }
+
+
