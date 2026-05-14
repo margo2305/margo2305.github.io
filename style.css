@@ -223,27 +223,25 @@ main.container {
     font-weight: bold;
 }
 
-.arrow-btn {
-    width: 45px !important;
-    height: 45px !important;
-    background-color: #007bff !important;
+.arrow.next, #nextBtn {
+    width: 50px !important;
+    height: 50px !important;
+    background-color: #007bff !important; 
     color: white !important;
-    border-radius: 50% !important; 
+    border-radius: 50% !important;        
     border: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
-.arrow-btn:hover {
-    background: var(--title-blue);
-    transform: scale(1.1);
-}
-
-.arrow-btn[style*="visibility: hidden"] {
-    opacity: 0;
-    pointer-events: none;
+#nextBtn::after {
+    content: '→' !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
 }
 
 .carousel-viewport {
