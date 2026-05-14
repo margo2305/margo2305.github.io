@@ -19,25 +19,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
+    
     const track = document.getElementById('track');
     const prev = document.getElementById('prevBtn');
     const next = document.getElementById('nextBtn');
-    const firstItem = document.querySelector('.video-item');
+    const items = document.querySelectorAll('.video-item');
     let currentIndex = 0;
 
-    if (track && next && prev && firstItem) {
+    if (track && next && prev && items.length > 0) {
         const updateCarousel = () => {
+            const firstItem = items[0];
             const itemWidth = firstItem.offsetWidth + 20; 
             track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             
-            prev.style.display = currentIndex === 0 ? 'none' : 'block';
-            const maxIndex = track.children.length - (window.innerWidth > 850 ? 3 : 1);
-            next.style.display = currentIndex >= maxIndex ? 'none' : 'block';
+            prev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+            
+            const visibleCount = window.innerWidth > 850 ? 3 : 1;
+            const maxIndex = Math.max(0, items.length - visibleCount);
+            
+            next.style.visibility = currentIndex >= maxIndex ? 'hidden' : 'visible';
         };
 
-        next.addEventListener('click', () => { currentIndex++; updateCarousel(); });
-        prev.addEventListener('click', () => { currentIndex--; updateCarousel(); });
+        next.addEventListener('click', () => { 
+            if (currentIndex < items.length - (window.innerWidth > 850 ? 3 : 1)) {
+                currentIndex++; 
+                updateCarousel(); 
+            }
+        });
+
+        prev.addEventListener('click', () => { 
+            if (currentIndex > 0) {
+                currentIndex--; 
+                updateCarousel(); 
+            }
+        });
+
         window.addEventListener('resize', updateCarousel);
         updateCarousel(); 
     }
