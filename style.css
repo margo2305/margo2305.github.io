@@ -149,9 +149,10 @@ header p {
     justify-content: flex-start !important;
     width: 100% !important;
     max-width: 1200px !important;
-    margin: 15px auto 20px -30px !important; 
-    padding: 0 !important;
+    margin: 15px 0 20px 0 !important; 
+    padding: 0 40px !important;
     position: relative !important;
+    transform: translateX(-50px) !important; 
     z-index: 100 !important;
 }
 
