@@ -224,20 +224,16 @@ main.container {
 }
 
 .arrow-btn {
-    background: var(--accent);
-    color: white;
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-    font-size: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 10;
+    width: 45px !important;
+    height: 45px !important;
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 50% !important; 
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
 }
 
 .arrow-btn:hover {
