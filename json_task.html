@@ -3,110 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON & C++ | Анализ доклада</title>
+    <title>JSON в C++ - Исследование</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="task-page">
+<body>
+
     <nav class="side-nav">
-        <a href="index.html" class="back-link">← НАЗАД</a>
+        <a href="index.html" class="back-link">← На главную</a>
     </nav>
 
     <header>
-        <button id="theme-toggle" class="theme-btn">Dark Mode</button>
-        <div class="header-content">
-            <h1>JSON в C++</h1>
-            <p>Сериализация и подводные камни разработки парсеров</p>
-        </div>
+        <button class="theme-btn" id="theme-toggle">
+            <span id="theme-text">Dark Mode</span>
+        </button>
+        <h1>JSON в C++</h1>
+        <p>Сериализация и подводные камни разработки парсеров</p>
     </header>
 
     <main class="container">
-        <section class="section">
+    
+        <section class="about-section">
+            <h2 class="section-title">Введение</h2>
+            <p>Разработка парсеров JSON на C++ требует глубокого понимания стандартов сериализации и управления памятью. В данном разделе мы разберем основные этапы создания легковесной библиотеки для работы с данными в стиле 1C:Enterprise.</p>
+        </section>
+
+        <section class="about-section">
             <h2 class="section-title">Ключевые аспекты исследования</h2>
             <div class="carousel-viewport">
                 <button class="arrow prev" id="prevBtn">‹</button>
-                <div class="carousel-track" id="track">
-                    <div class="video-item" onclick="window.open('https://youtu.be/GKlZGbbsaVc?t=9')">
-                        <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="Intro">
-                        <div class="item-overlay">
-                            <span class="timestamp">00:09</span>
-                            <p>Экранирование строк</p>
-                        </div>
-                    </div>
-                    <div class="video-item" onclick="window.open('https://youtu.be/GKlZGbbsaVc?t=323')">
-                        <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="UTF-8">
-                        <div class="item-overlay">
-                            <span class="timestamp">05:23</span>
-                            <p>Валидация UTF-8</p>
-                        </div>
-                    </div>
-                    <div class="video-item" onclick="window.open('https://youtu.be/GKlZGbbsaVc?t=590')">
-                        <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="Types">
-                        <div class="item-overlay">
-                            <span class="timestamp">09:50</span>
-                            <p>Отображение типов</p>
-                        </div>
-                    </div>
-                    <div class="video-item" onclick="window.open('https://youtu.be/GKlZGbbsaVc?t=1043')">
-                        <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="Implementation">
-                        <div class="item-overlay">
-                            <span class="timestamp">17:23</span>
-                            <p>Реализация функторов</p>
-                        </div>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="track">
+                        <a href="https://youtu.be/GKlZGbbsaVc?t=9" target="_blank" class="video-item">
+                            <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="Intro">
+                            <div class="item-overlay">
+                                <span class="timestamp">00:09</span>
+                                <p>Экранирование строк</p>
+                            </div>
+                        </a>
+                        <a href="https://youtu.be/GKlZGbbsaVc?t=323" target="_blank" class="video-item">
+                            <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="UTF-8">
+                            <div class="item-overlay">
+                                <span class="timestamp">05:23</span>
+                                <p>Валидация UTF-8</p>
+                            </div>
+                        </a>
+                        <a href="https://youtu.be/GKlZGbbsaVc?t=590" target="_blank" class="video-item">
+                            <img src="https://img.youtube.com/vi/GKlZGbbsaVc/mqdefault.jpg" alt="Types">
+                            <div class="item-overlay">
+                                <span class="timestamp">09:50</span>
+                                <p>Отображение типов</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <button class="arrow next" id="nextBtn">›</button>
             </div>
         </section>
 
-        <section class="section">
+        <section class="about-section">
             <h2 class="section-title">Развернутый конспект</h2>
-            <div class="notes-container">
-                <article class="note-card">
+            <div class="notes-grid">
+                <div class="note-card">
                     <span class="note-time">00:03:12</span>
                     <h3>Реализация экранирования</h3>
                     <p>Использование флагов для режима валидации и продвинутых функций в пространстве имен impl.</p>
-                </article>
-                <article class="note-card">
+                </div>
+                <div class="note-card">
                     <span class="note-time">00:12:02</span>
                     <h3>Методы обхода JSON</h3>
                     <p>Сравнение рекурсии и стека в куче. Рекомендуется комбинированный подход для оптимизации.</p>
-                </article>
-                <article class="note-card">
+                </div>
+                <div class="note-card">
                     <span class="note-time">00:22:57</span>
                     <h3>Работа с объектами</h3>
-                    <p>Стерилизация непустых объектов с контролем отступов и сортировкой по ключам.</p>
-                </article>
-                <article class="note-card">
+                    <p>Сериализация непустых объектов с контролем отступов и сортировкой по ключам.</p>
+                </div>
+                <div class="note-card">
                     <span class="note-time">00:32:05</span>
-                    <h3>Библиотека min_json_cpp</h3>
-                    </p>Создание легковесной библиотеки (1500 строк), покрывающей парсинг и экранирование.</p>
-                </article>
+                    <h3>Библиотека min_json</h3>
+                    <p>Создание легковесной библиотеки (1500 строк), покрывающей парсинг и экранирование.</p>
+                </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="about-section">
             <h2 class="section-title">Пример реализации</h2>
             <div class="code-editor">
                 <div class="editor-header">
                     <span>min_json.cpp</span>
                     <button id="copyBtn" class="copy-btn">Copy</button>
                 </div>
-<pre id="cppCode"><code>#include "min_json.hpp"
+                <pre id="cppCode"><code>#include "min_json.hpp"
 #include &lt;iostream&gt;
 
 int main() {
-    min_json::json j = { {"status", "success"}, {"data", 200} };
-    std::cout << j.serialize(min_json::format::pretty) << std::endl;
+    min_json::j j = { {"status", "success"}, {"data", 200} };
+    std::cout << j.serialize() << std::endl;
     return 0;
 }</code></pre>
             </div>
 
             <div class="terminal">
                 <div class="terminal-bar">
-                    <div class="dots"><span></span><span></span><span></span></div>
-                    <div class="actions">
-                        <button id="runBtn" class="t-btn run">RUN</button>
-                        <button id="stopBtn" class="t-btn stop" style="display:none;">STOP</button>
+                    <span>TERMINAL</span>
+                    <div class="term-controls">
+                        <button id="runBtn" class="run">RUN</button>
+                        <button id="stopBtn" class="stop" style="display:none">STOP</button>
                     </div>
                 </div>
                 <div class="terminal-view" id="termOutput">
@@ -114,10 +116,11 @@ int main() {
                 </div>
             </div>
         </section>
+
     </main>
 
-    <div id="copyToast" class="toast">Успешно скопировано!</div>
+    <div id="copyToast" class="toast">Код скопирован!</div>
 
     <script src="script.js"></script>
 </body>
-</html> <p>Созда
+</html>
